@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scientific Calculator</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Scientific Calculator</h1>
+
+        <form method="POST">
+            <input type="number" step="any" name="x" placeholder="Primary value" required>
+            <input type="number" step="any" name="y" placeholder="Secondary value (if required)">
+
+            <select name="operation">
+                <option value="add">Addition</option>
+                <option value="sub">Subtraction</option>
+                <option value="mul">Multiplication</option>
+                <option value="div">Division</option>
+                <option value="power">Power</option>
+                <option value="percent">Percentage</option>
+                <option value="sqrt">Square Root</option>
+                <option value="log">Logarithm (base 10)</option>
+                <option value="sin">Sine</option>
+                <option value="cos">Cosine</option>
+                <option value="tan">Tangent</option>
+            </select>
+
+            <button type="submit">Compute</button>
+        </form>
+
+        {% if result is not none %}
+        <div class="result">
+            Result: {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
